@@ -4,18 +4,21 @@ Affiches de référence et mémos synthétiques de mathématiques conformes aux 
 
 Chaque fiche est conçue en **HTML5 / CSS3 / SVG vectoriel** pur pour tenir rigoureusement sur **une seule page A4 portrait**, prête pour l'impression ou l'affichage en classe et dans le classeur de référence.
 
+> 🌐 **Consultation en ligne (GitHub Pages)** : [https://arcank.github.io/affiche-maths-cm2/](https://arcank.github.io/affiche-maths-cm2/)  
+> 📥 **Téléchargements directs** : Tous les mémos sont pré-générés en PDF A4 haute fidélité ci-dessous.
+
 ---
 
-## 📑 Sommaire des Fiches
+## 📑 Sommaire des Fiches & Téléchargements
 
-| Fiche | Thème | Fichier | Contenu clé |
-| :--- | :--- | :--- | :--- |
-| **N° 1** | **Nombres & Calculs** | [`memo_1_nombres_calculs.html`](memo_1_nombres_calculs.html) | Tableau de numération jusqu'au milliard, fractions (disques & barres), décimaux, 4 opérations posées avec retenues (+1), division euclidienne & décimale, astuces de calcul mental. |
-| **N° 2** | **Grandeurs & Mesures** | [`memo_2_grandeurs_mesures.html`](memo_2_grandeurs_mesures.html) | Tableaux de conversion (longueurs, masses, contenances) & règle d'or, formules en toutes lettres (carré, rectangle, triangle, cercle), tableau d'aires à 2 colonnes, volumes 3D, durées & horloge 24h, angles et utilisation du rapporteur. |
-| **N° 3** | **Espace & Géométrie** | [`memo_3_espace_geometrie.html`](memo_3_espace_geometrie.html) | Notations géométriques $[AB], (d), \perp, //$, classification des triangles et quadrilatères, cercle et diamètre, symétrie axiale, solides 3D avec perspectives, patrons dépliés et formule d'Euler ($F+S=A+2$). |
-| **N° 4** | **Organisation de Données & Proportionnalité** | [`memo_4_organisation_proportionnalite.html`](memo_4_organisation_proportionnalite.html) | 4 outils graphiques (tableau double entrée, bâtons, courbe, camembert), coefficient de proportionnalité, règle de trois, produit en croix, repérage graphique $(0,0)$, 5 pourcentages repères, soldes/hausses, échelles et triangle magique vitesse $D=V\times T$. |
+| Fiche | Thème | Version Web (HTML) | Version Prête à Imprimer (PDF) | Contenu clé |
+| :--- | :--- | :--- | :--- | :--- |
+| **N° 1** | **Nombres & Calculs** | [`memo_1_nombres_calculs.html`](memo_1_nombres_calculs.html) | [📄 `memo_1_nombres_calculs.pdf`](memo_1_nombres_calculs.pdf) | Tableau de numération jusqu'au milliard, fractions (disques & barres), décimaux, 4 opérations posées avec retenues (+1), division euclidienne & décimale, astuces de calcul mental. |
+| **N° 2** | **Grandeurs & Mesures** | [`memo_2_grandeurs_mesures.html`](memo_2_grandeurs_mesures.html) | [📄 `memo_2_grandeurs_mesures.pdf`](memo_2_grandeurs_mesures.pdf) | Tableaux de conversion (longueurs, masses, contenances) & règle d'or, formules en toutes lettres (carré, rectangle, triangle, cercle), tableau d'aires à 2 colonnes, volumes 3D, durées & horloge 24h, angles et utilisation du rapporteur. |
+| **N° 3** | **Espace & Géométrie** | [`memo_3_espace_geometrie.html`](memo_3_espace_geometrie.html) | [📄 `memo_3_espace_geometrie.pdf`](memo_3_espace_geometrie.pdf) | Notations géométriques $[AB], (d), \perp, //$, classification des triangles et quadrilatères, cercle et diamètre, symétrie axiale, solides 3D avec perspectives, patrons dépliés et formule d'Euler ($F+S=A+2$). |
+| **N° 4** | **Organisation de Données & Proportionnalité** | [`memo_4_organisation_proportionnalite.html`](memo_4_organisation_proportionnalite.html) | [📄 `memo_4_organisation_proportionnalite.pdf`](memo_4_organisation_proportionnalite.pdf) | 4 outils graphiques (tableau double entrée, bâtons, courbe, camembert), coefficient de proportionnalité, règle de trois, produit en croix, repérage graphique $(0,0)$, 5 pourcentages repères, soldes/hausses, échelles et triangle magique vitesse $D=V\times T$. |
 
-Le portail central [`index.html`](index.html) rassemble les liens vers toutes les fiches avec des aperçus synthétiques.
+Le portail central [`index.html`](index.html) rassemble les aperçus et boutons de téléchargement direct pour l'ensemble des mémos.
 
 ---
 
