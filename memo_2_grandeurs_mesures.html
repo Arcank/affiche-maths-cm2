@@ -56,6 +56,22 @@
     .btn-print:hover {
       background: #065f46;
     }
+    .btn-lang {
+      background: #ffffff;
+      color: #047857;
+      border: 1.5px solid #a7f3d0;
+      padding: 7px 15px;
+      font-size: 9pt;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-main);
+      transition: background 0.15s;
+    }
+    .btn-lang:hover { background: #ecfdf5; }
 
     /* Enveloppe de la feuille A4 */
     .sheet {
@@ -574,10 +590,12 @@
 </head>
 <body>
 
-<div class="screen-banner">
+<div class="screen-banner" style="gap: 12px;">
   <button class="btn-print" onclick="window.print()">
     🖨️ Imprimer la Fiche Mémo Grandeurs &amp; Mesures (Format A4)
   </button>
+  <a href="zh/memo_2_liangdejiliang.html" class="btn-lang">🇨🇳 Voir en Chinois (中文版)</a>
+  <a href="index.html" class="btn-lang">🏠 Retour au Portail</a>
 </div>
 
 <main class="sheet">

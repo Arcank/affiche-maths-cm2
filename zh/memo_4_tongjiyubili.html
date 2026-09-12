@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小学数学核心考点·必背速查（四）：统计图表 · 解决问题与比和比例</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700;800;900&family=Nunito:wght@700;800;900&display=swap');
+
+    :root {
+      --font-main: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-mono: "SF Mono", "Segoe UI Mono", "Courier New", Courier, monospace;
+
+      --c-navy: #0f172a;
+      --c-slate: #1e293b;
+      --c-muted: #334155;
+      --c-light-bg: #f8fafc;
+      --c-border: #cbd5e1;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 6mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html, body {
+      font-family: var(--font-main);
+      color: var(--c-navy);
+      background-color: #cbd5e1;
+      font-size: 8.2pt;
+      line-height: 1.25;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .screen-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0 4px 0;
+    }
+    .btn-print {
+      background: #ea580c;
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      font-size: 9pt;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(234,88,12,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-main);
+      text-decoration: none;
+    }
+    .btn-print:hover { background: #c2410c; }
+    .btn-lang {
+      background: #ffffff;
+      color: #ea580c;
+      border: 1.5px solid #fed7aa;
+      padding: 6px 14px;
+      font-size: 8.8pt;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-main);
+    }
+    .btn-lang:hover { background: #fff7ed; }
+
+    .page-container {
+      width: 198mm;
+      height: 285mm;
+      max-height: 285mm;
+      margin: 0 auto 15px auto;
+      padding: 0;
+      background: #ffffff;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    @media print {
+      .screen-actions { display: none !important; }
+      html, body { background: transparent; margin: 0; padding: 0; }
+      .page-container {
+        width: 198mm;
+        height: 285mm;
+        max-height: 285mm;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+    }
+
+    .card {
+      border: 1.2px solid var(--c-border);
+      border-radius: 6px;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 8.6pt;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      padding: 3px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    .card-body {
+      padding: 5px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .tag {
+      font-size: 7pt;
+      font-weight: 800;
+      padding: 1.5px 5px;
+      border-radius: 4px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #c2410c 0%, #ea580c 45%, #0284c7 100%);
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid #9a3412;
+    }
+    .header-left { display: flex; align-items: center; gap: 9px; }
+    .header-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16pt;
+    }
+    .header-titles h1 {
+      font-size: 12.8pt;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+    }
+    .header-titles p {
+      font-size: 7.6pt;
+      opacity: 0.95;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .header-badges { display: flex; align-items: center; gap: 5px; }
+    .badge-cycle {
+      background: #fef08a;
+      color: #854d0e;
+      font-size: 7.4pt;
+      font-weight: 900;
+      padding: 2.5px 7px;
+      border-radius: 12px;
+    }
+    .badge-memo {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+      font-size: 7.2pt;
+      font-weight: 800;
+      padding: 2.5px 7px;
+      border-radius: 12px;
+    }
+
+    /* 顶部网格 */
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2.8mm;
+    }
+
+    /* 主网格 */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.05fr;
+      gap: 2.8mm;
+      flex: 1;
+    }
+    .col-left, .col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+    }
+
+    .footer-bar {
+      background: #f1f5f9;
+      border-top: 1px solid #cbd5e1;
+      padding: 2.5px 8px;
+      font-size: 6.8pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 6px 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-actions">
+    <button class="btn-print" onclick="window.print()">🖨️ 打印本备忘单 (A4 单页)</button>
+    <a href="../memo_4_organisation_proportionnalite.html" class="btn-lang">🇫🇷 Voir la version française</a>
+    <a href="index.html" class="btn-lang">🏠 返回中文主页</a>
+  </div>
+
+  <div class="page-container">
+
+    <!-- 页眉 -->
+    <header class="header">
+      <div class="header-left">
+        <div class="header-icon">📊</div>
+        <div class="header-titles">
+          <h1>小学数学核心考点 · 必背速查（四）</h1>
+          <p>统计图表 · 正比例与反比例 · 常见应用题数量关系 · 常用百分数 · 避坑指南</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge-cycle">小学 4~5 年级</span>
+        <span class="badge-memo">速查卡 04</span>
+      </div>
+    </header>
+
+    <!-- 顶部：常用统计图对比 + 正反比例判定 -->
+    <div class="top-grid">
+
+      <!-- ① 常用统计图表对比 -->
+      <section class="card" style="border-color:#ea580c;">
+        <div class="card-title" style="background:#c2410c;">
+          <span>① 常见统计图表特点与选择</span>
+          <span class="tag" style="background:#ffedd5; color:#c2410c;">数据分析</span>
+        </div>
+        <div class="card-body">
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:4px; font-size:7.1pt;">
+            <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:3px; padding:3px 5px;">
+              <strong style="color:#c2410c;">📊 条形统计图</strong><br>
+              • <strong>特点：</strong>用直条长短表示数量<br>
+              • <strong>作用：</strong>直观比较不同类别的<strong>数量多少</strong>
+            </div>
+            <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:3px; padding:3px 5px;">
+              <strong style="color:#0284c7;">📈 折线统计图</strong><br>
+              • <strong>特点：</strong>用折线的升降表示数量<br>
+              • <strong>作用：</strong>清晰反映事物随时间的<strong>增减变化趋势</strong>
+            </div>
+            <div style="background:#fff7ed; border:1px solid #fed7aa; border-radius:3px; padding:3px 5px;">
+              <strong style="color:#059669;">🥧 扇形统计图</strong><br>
+              • <strong>特点：</strong>用圆内扇形表示占比<br>
+              • <strong>作用：</strong>清楚表示各部分占总体的<strong>百分比关系</strong>
+            </div>
+          </div>
+
+          <!-- SVG 统计图微缩图示 -->
+          <div style="display:flex; justify-content:space-around; align-items:center; background:#ffffff; border:1px solid #e2e8f0; border-radius:4px; padding:2px;">
+            <svg width="60" height="26" viewBox="0 0 60 26">
+              <!-- 条形 -->
+              <rect x="5" y="14" width="8" height="10" fill="#ea580c"/>
+              <rect x="18" y="6" width="8" height="18" fill="#ea580c"/>
+              <rect x="31" y="10" width="8" height="14" fill="#ea580c"/>
+              <rect x="44" y="2" width="8" height="22" fill="#ea580c"/>
+              <line x1="2" y1="24" x2="56" y2="24" stroke="#64748b" stroke-width="1"/>
+            </svg>
+            <svg width="60" height="26" viewBox="0 0 60 26">
+              <!-- 折线 -->
+              <polyline points="5,20 18,12 32,16 46,4 56,8" fill="none" stroke="#0284c7" stroke-width="1.8"/>
+              <circle cx="18" cy="12" r="2" fill="#0284c7"/>
+              <circle cx="46" cy="4" r="2" fill="#0284c7"/>
+              <line x1="2" y1="24" x2="58" y2="24" stroke="#64748b" stroke-width="1"/>
+            </svg>
+            <svg width="30" height="26" viewBox="0 0 30 26">
+              <!-- 扇形 -->
+              <circle cx="15" cy="13" r="11" fill="#ecfdf5" stroke="#059669" stroke-width="1"/>
+              <path d="M 15 13 L 15 2 A 11 11 0 0 1 26 13 Z" fill="#10b981"/>
+              <path d="M 15 13 L 26 13 A 11 11 0 0 1 15 24 Z" fill="#34d399"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ② 正比例与反比例判定 -->
+      <section class="card" style="border-color:#0284c7;">
+        <div class="card-title" style="background:#0369a1;">
+          <span>② 正比例与反比例的核心区别</span>
+          <span class="tag" style="background:#e0f2fe; color:#0369a1;">函数初步</span>
+        </div>
+        <div class="card-body">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:7.1pt;">
+            <div style="background:#f0f9ff; border:1px solid #bae6fd; border-radius:3px; padding:3px 5px;">
+              <strong style="color:#0369a1;">正比例（比值一定）</strong><br>
+              • 关系式：<code style="font-family:var(--font-mono); font-weight:900;">y / x = k (一定)</code><br>
+              • 一种量扩大，另一种量<strong>同倍数扩大</strong><br>
+              • 图像是：<strong>过原点 (0,0) 的射线/直线</strong>
+            </div>
+            <div style="background:#f0f9ff; border:1px solid #bae6fd; border-radius:3px; padding:3px 5px;">
+              <strong style="color:#0369a1;">反比例（乘积一定）</strong><br>
+              • 关系式：<code style="font-family:var(--font-mono); font-weight:900;">x × y = k (一定)</code><br>
+              • 一种量扩大，另一种量<strong>成倍缩小</strong><br>
+              • 图像是：<strong>平滑弯曲的双曲线</strong>
+            </div>
+          </div>
+
+          <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:3px; padding:2px 5px; font-size:7pt; color:#991b1b;">
+            ⚠️ <strong>不成比例辨析：</strong>若 <code style="font-family:var(--font-mono);">x + y = k (和一定)</code> 或 <code style="font-family:var(--font-mono);">x - y = k (差一定)</code>，则两者<strong>不成比例</strong>！（例如：人的年龄与身高不成比例）。
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 主网格：解决问题数量关系 + 常用百分数 | 比例尺与行程 + 避坑指南 -->
+    <div class="main-grid">
+
+      <!-- 左列：数量关系与百分数 -->
+      <div class="col-left">
+
+        <!-- 常用数量关系式 -->
+        <section class="card" style="border-color:#16a34a;">
+          <div class="card-title" style="background:#15803d;">
+            <span>③ 解决问题四大核心数量关系式</span>
+            <span class="tag" style="background:#dcfce7; color:#166534;">经典模型</span>
+          </div>
+          <div class="card-body">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:7.1pt;">
+              <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:3px; padding:3px 5px;">
+                <strong style="color:#15803d;">① 购物问题（总价）</strong><br>
+                • <strong>总价 = 单价 × 数量</strong><br>
+                • 单价 = 总价 ÷ 数量<br>
+                • 数量 = 总价 ÷ 单价
+              </div>
+              <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:3px; padding:3px 5px;">
+                <strong style="color:#15803d;">② 行程问题（路程）</strong><br>
+                • <strong>路程 (S) = 速度 (V) × 时间 (T)</strong><br>
+                • 速度 = 路程 ÷ 时间<br>
+                • 时间 = 路程 ÷ 速度
+              </div>
+              <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:3px; padding:3px 5px;">
+                <strong style="color:#15803d;">③ 工程问题（工作总量）</strong><br>
+                • <strong>总量 = 工作效率 × 时间</strong><br>
+                • 效率 = 工作总量 ÷ 时间<br>
+                • 时间 = 工作总量 ÷ 效率
+              </div>
+              <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:3px; padding:3px 5px;">
+                <strong style="color:#15803d;">④ 产量与效率</strong><br>
+                • <strong>总产量 = 单产量 × 数量</strong><br>
+                • <strong>归一问题策略：</strong>先求出单一量（先除），再算总量（后乘）。
+              </div>
+            </div>
+
+            <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:3px; padding:2.5px 5px; font-size:7pt; color:#065f46;">
+              <strong>★ 解比例黄金法则（十字相乘）：</strong>在比例中，两个<strong>外项之积等于两个内项之积</strong>：若 $a : b = c : d$，则 <strong>$a \times d = b \times c$</strong>。
+            </div>
+          </div>
+        </section>
+
+        <!-- 百分数应用 -->
+        <section class="card" style="border-color:#7c3aed; flex:1;">
+          <div class="card-title" style="background:#6d28d9;">
+            <span>④ 常用百分数与分数互化 · 商业折扣</span>
+            <span class="tag" style="background:#ede9fe; color:#6d28d9;">速算互化</span>
+          </div>
+          <div class="card-body">
+            <!-- 互化表 -->
+            <table style="width:100%; border-collapse:collapse; text-align:center; font-size:7.1pt;">
+              <tr style="background:#f5f3ff; font-weight:800; color:#5b21b6;">
+                <th style="border:1px solid #ddd6fe; padding:2px;">百分数</th>
+                <td style="border:1px solid #ddd6fe;">50%</td>
+                <td style="border:1px solid #ddd6fe;">25%</td>
+                <td style="border:1px solid #ddd6fe;">75%</td>
+                <td style="border:1px solid #ddd6fe;">20%</td>
+                <td style="border:1px solid #ddd6fe;">10%</td>
+                <td style="border:1px solid #ddd6fe;">12.5%</td>
+              </tr>
+              <tr style="background:#ffffff; font-family:var(--font-mono); font-weight:900;">
+                <th style="border:1px solid #ddd6fe; background:#f5f3ff; color:#5b21b6;">最简分数</th>
+                <td style="border:1px solid #ddd6fe; color:#6d28d9;">1/2</td>
+                <td style="border:1px solid #ddd6fe; color:#6d28d9;">1/4</td>
+                <td style="border:1px solid #ddd6fe; color:#6d28d9;">3/4</td>
+                <td style="border:1px solid #ddd6fe; color:#6d28d9;">1/5</td>
+                <td style="border:1px solid #ddd6fe; color:#6d28d9;">1/10</td>
+                <td style="border:1px solid #ddd6fe; color:#6d28d9;">1/8</td>
+              </tr>
+              <tr style="background:#faf5ff; font-family:var(--font-mono); font-size:6.9pt;">
+                <th style="border:1px solid #ddd6fe; background:#f5f3ff; color:#5b21b6;">小数</th>
+                <td style="border:1px solid #ddd6fe;">0.5</td>
+                <td style="border:1px solid #ddd6fe;">0.25</td>
+                <td style="border:1px solid #ddd6fe;">0.75</td>
+                <td style="border:1px solid #ddd6fe;">0.2</td>
+                <td style="border:1px solid #ddd6fe;">0.1</td>
+                <td style="border:1px solid #ddd6fe;">0.125</td>
+              </tr>
+            </table>
+
+            <!-- 折扣与商业问题 -->
+            <div style="background:#fdf4ff; border:1px solid #f5d0fe; border-radius:3px; padding:3px 6px; font-size:7.1pt;">
+              <strong style="color:#a21caf;">★ 折扣与税率利润核心公式：</strong><br>
+              • <strong>折扣含义：</strong>“几折”表示原价的十分之几即百分之几十（例如：八折 = 80%，八五折 = 85%）。<br>
+              • <strong>现价 = 原价 × 折扣</strong> &nbsp;|&nbsp; <strong>节省金额 = 原价 × (1 - 折扣)</strong><br>
+              • <strong>利息 = 本金 × 利率 × 存期</strong>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- 右列：比例尺、行程与避坑指南 -->
+      <div class="col-right">
+
+        <!-- 比例尺与行程问题 -->
+        <section class="card" style="border-color:#0891b2;">
+          <div class="card-title" style="background:#0e7490;">
+            <span>⑤ 比例尺与行程问题模型</span>
+            <span class="tag" style="background:#cffafe; color:#155e75;">应用模型</span>
+          </div>
+          <div class="card-body">
+            <div style="background:#ecfeff; border:1px solid #a5f3fc; border-radius:3px; padding:3px 5px; font-size:7.1pt;">
+              <strong style="color:#0e7490;">比例尺定义与公式：</strong><br>
+              <strong>比例尺 = 图上距离 : 实际距离</strong>（计算时单位必须<strong>统一为厘米 cm</strong>）<br>
+              • 图上距离 = 实际距离 × 比例尺<br>
+              • 实际距离 = 图上距离 ÷ 比例尺（$1:50000$ 表示图上 1 cm 代表实际 500 m / 0.5 km）
+            </div>
+
+            <!-- 相遇与追及 -->
+            <div style="background:#f0f9ff; border:1px solid #bae6fd; border-radius:3px; padding:3px 5px; font-size:7.1pt; margin-top:1px;">
+              <strong style="color:#0284c7;">相遇问题与追及问题公式：</strong><br>
+              • <strong>相遇路程 = 速度和 × 相遇时间</strong>（甲速度 + 乙速度）<br>
+              • <strong>追及路程 = 速度差 × 追及时间</strong>（快车速度 - 慢车速度）
+            </div>
+          </div>
+        </section>
+
+        <!-- 避坑指南 -->
+        <section class="card" style="border-color:#e11d48; flex:1;">
+          <div class="card-title" style="background:#be123c;">
+            <span>⑥ 小学数学解决问题四大避坑指南</span>
+            <span class="tag" style="background:#ffe4e6; color:#9f1239;">考场防丢分</span>
+          </div>
+          <div class="card-body">
+            <div style="display:flex; flex-direction:column; gap:3px; font-size:7.1pt;">
+              <div style="background:#fff1f2; border:1px solid #fecdd3; border-radius:3px; padding:2.5px 5px;">
+                <strong style="color:#be123c;">⚠️ 陷阱一：单位未统一就直接计算！</strong><br>
+                计算面积、周长、体积或速度前，必须先看清题目单位是否一致（如：米与厘米、小时与分钟、升与毫升）。
+              </div>
+              <div style="background:#fff1f2; border:1px solid #fecdd3; border-radius:3px; padding:2.5px 5px;">
+                <strong style="color:#be123c;">⚠️ 陷阱二：求人数、车船数用“四舍五入”！</strong><br>
+                实际生活问题必须联系实际情况选择：<br>
+                • <strong>进一法：</strong>租船、租车、装箱（剩余一点也要再加 1 只船/车/箱）<br>
+                • <strong>去尾法：</strong>做衣服、裁纸（不够做一件衣服的布料直接舍去）
+              </div>
+              <div style="background:#fff1f2; border:1px solid #fecdd3; border-radius:3px; padding:2.5px 5px;">
+                <strong style="color:#be123c;">⚠️ 陷阱三：分不清“增加了”与“增加到”！</strong><br>
+                • <strong>增加了 20%：</strong>现在的量 = 原来的量 × (1 + 20%)<br>
+                • <strong>增加到 120%：</strong>现在的量 = 原来的量 × 120%
+              </div>
+              <div style="background:#fff1f2; border:1px solid #fecdd3; border-radius:3px; padding:2.5px 5px;">
+                <strong style="color:#be123c;">⚠️ 陷阱四：三角形、梯形面积忘记除以 2！</strong><br>
+                求三角形或梯形面积时，列出算式后必须检查末尾是否有“$\div 2$”。
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-bar">
+      <span>依据国家《义务教育数学课程标准》· 小学中高年级（4~5年级）统计与比例解决问题核心知识归纳</span>
+      <span>A4 单页标准版 · 建议彩色打印张贴或装入活页夹</span>
+    </div>
+
+  </div>
+
+</body>
+</html>

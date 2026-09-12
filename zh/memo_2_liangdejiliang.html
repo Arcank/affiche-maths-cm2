@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小学数学核心考点·必背速查（二）：常见的量与计量 · 周长面积体积公式</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700;800;900&family=Nunito:wght@700;800;900&display=swap');
+
+    :root {
+      --font-main: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-mono: "SF Mono", "Segoe UI Mono", "Courier New", Courier, monospace;
+
+      --em-dark: #064e3b;
+      --em-main: #047857;
+      --em-light: #ecfdf5;
+      --em-border: #a7f3d0;
+      --mint-dark: #134e4a;
+      --mint-main: #0d9488;
+      --amb-dark: #78350f;
+      --amb-main: #d97706;
+      --slate-border: #cbd5e1;
+      --slate-bg: #f8fafc;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 6mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html, body {
+      font-family: var(--font-main);
+      color: #0f172a;
+      background-color: #cbd5e1;
+      font-size: 8.2pt;
+      line-height: 1.25;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .screen-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0 4px 0;
+    }
+    .btn-print {
+      background: #047857;
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      font-size: 9pt;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(4,120,87,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-main);
+      text-decoration: none;
+    }
+    .btn-print:hover { background: #065f46; }
+    .btn-lang {
+      background: #ffffff;
+      color: #047857;
+      border: 1.5px solid #a7f3d0;
+      padding: 6px 14px;
+      font-size: 8.8pt;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-main);
+    }
+    .btn-lang:hover { background: #ecfdf5; }
+
+    .page-container {
+      width: 198mm;
+      height: 285mm;
+      max-height: 285mm;
+      margin: 0 auto 15px auto;
+      padding: 0;
+      background: #ffffff;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    @media print {
+      .screen-actions { display: none !important; }
+      html, body { background: transparent; margin: 0; padding: 0; }
+      .page-container {
+        width: 198mm;
+        height: 285mm;
+        max-height: 285mm;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+    }
+
+    .card {
+      border: 1.2px solid var(--slate-border);
+      border-radius: 6px;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 8.6pt;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      padding: 3px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    .card-body {
+      padding: 5px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .tag {
+      font-size: 7pt;
+      font-weight: 800;
+      padding: 1.5px 5px;
+      border-radius: 4px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #0d9488 100%);
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid #064e3b;
+    }
+    .header-left { display: flex; align-items: center; gap: 9px; }
+    .header-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16pt;
+    }
+    .header-titles h1 {
+      font-size: 12.8pt;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      line-height: 1.15;
+    }
+    .header-titles p {
+      font-size: 7.6pt;
+      opacity: 0.95;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .header-badges { display: flex; align-items: center; gap: 5px; }
+    .badge-cycle {
+      background: #fef08a;
+      color: #854d0e;
+      font-size: 7.4pt;
+      font-weight: 900;
+      padding: 2.5px 7px;
+      border-radius: 12px;
+    }
+    .badge-memo {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+      font-size: 7.2pt;
+      font-weight: 800;
+      padding: 2.5px 7px;
+      border-radius: 12px;
+    }
+
+    /* 顶部表格 */
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 2.8mm;
+    }
+
+    .conv-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 7.4pt;
+    }
+    .conv-table th, .conv-table td {
+      border: 1px solid #cbd5e1;
+      padding: 2px 1px;
+    }
+    .conv-table th { background: #f0fdf4; color: #065f46; font-weight: 800; }
+    .conv-table td { font-family: var(--font-mono); font-weight: 800; }
+
+    /* 主网格 */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 2.8mm;
+      flex: 1;
+    }
+    .col-left, .col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5mm;
+    }
+
+    /* 公式卡片 */
+    .formula-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 3px 6px;
+      align-items: center;
+    }
+    .formula-badge {
+      background: #047857;
+      color: white;
+      font-weight: 900;
+      font-size: 7.2pt;
+      padding: 2px 6px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .footer-bar {
+      background: #f1f5f9;
+      border-top: 1px solid #cbd5e1;
+      padding: 2.5px 8px;
+      font-size: 6.8pt;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 6px 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-actions">
+    <button class="btn-print" onclick="window.print()">🖨️ 打印本备忘单 (A4 单页)</button>
+    <a href="../memo_2_grandeurs_mesures.html" class="btn-lang">🇫🇷 Voir la version française</a>
+    <a href="index.html" class="btn-lang">🏠 返回中文主页</a>
+  </div>
+
+  <div class="page-container">
+
+    <!-- 页眉 -->
+    <header class="header">
+      <div class="header-left">
+        <div class="header-icon">📏</div>
+        <div class="header-titles">
+          <h1>小学数学核心考点 · 必背速查（二）</h1>
+          <p>常见的量与计量单位 · 换算表 · 周长·面积·体积公式 · 时间与角</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge-cycle">小学 4~5 年级</span>
+        <span class="badge-memo">速查卡 02</span>
+      </div>
+    </header>
+
+    <!-- 顶部：长度与质量换算 + 面积与体积换算 -->
+    <div class="top-grid">
+
+      <!-- 长度与质量 -->
+      <section class="card" style="border-color:#10b981;">
+        <div class="card-title" style="background:#047857;">
+          <span>① 长度与质量计量单位换算</span>
+          <span class="tag" style="background:#a7f3d0; color:#064e3b;">进率换算</span>
+        </div>
+        <div class="card-body">
+          <table class="conv-table">
+            <thead>
+              <tr>
+                <th style="background:#e0f2fe; color:#0369a1;">千米 (km)</th>
+                <th>-</th><th>-</th>
+                <th style="background:#dcfce7; color:#15803d;">米 (m)</th>
+                <th>分米 (dm)</th>
+                <th>厘米 (cm)</th>
+                <th>毫米 (mm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:#0369a1;">1 km</td>
+                <td colspan="2" style="font-size:7pt; color:#64748b;">×1000</td>
+                <td style="color:#15803d; font-weight:900;">1 000 m</td>
+                <td>10 dm</td>
+                <td>100 cm</td>
+                <td>1 000 mm</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:4px; padding:2.5px 6px; font-size:7.2pt;">
+            <div>
+              <strong>质量单位：</strong> <strong>1 吨 (t) = 1000 千克 (kg)</strong> &nbsp;|&nbsp; <strong>1 kg = 1000 克 (g)</strong>
+            </div>
+            <div style="color:#047857; font-weight:800;">
+              进率均为 1000
+            </div>
+          </div>
+
+          <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:3px; padding:2px 5px; font-size:7pt; color:#92400e;">
+            <strong>★ 单位换算黄金口诀：</strong>大单位化小单位 <strong>乘进率</strong>（添0 / 小数点右移）；小单位化大单位 <strong>除以进率</strong>（去0 / 小数点左移）。
+          </div>
+        </div>
+      </section>
+
+      <!-- 面积与体积/容积 -->
+      <section class="card" style="border-color:#0d9488;">
+        <div class="card-title" style="background:#0f766e;">
+          <span>② 面积与容积/体积单位换算</span>
+          <span class="tag" style="background:#99f6e4; color:#134e4a;">进率 100 / 1000</span>
+        </div>
+        <div class="card-body">
+          <div style="background:#f0fdfa; border:1px solid #99f6e4; border-radius:4px; padding:3px 6px; font-size:7.2pt; line-height:1.35;">
+            <strong>面积进率（每级 100 倍 / 2 位数一格）：</strong><br>
+            • <strong>1 平方千米 ($km^2$) = 100 公顷 ($ha$) = 1 000 000 平方米 ($m^2$)</strong><br>
+            • <strong>1 公顷 = 10 000 $m^2$</strong> &nbsp;|&nbsp; <strong>1 $m^2$ = 100 $dm^2$ = 10 000 $cm^2$</strong>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#f5f3ff; border:1px solid #ddd6fe; border-radius:4px; padding:3px 6px; font-size:7.2pt;">
+            <div>
+              <strong>体积与容积换算桥梁（必考）：</strong><br>
+              • <strong>1 升 (L) = 1 立方分米 ($dm^3$) = 1 000 毫升 (mL)</strong><br>
+              • <strong>1 毫升 (mL) = 1 立方厘米 ($cm^3$)</strong> &nbsp;|&nbsp; <strong>1 $m^3$ = 1 000 L</strong>
+            </div>
+            <div style="font-size:12pt; text-align:center;">🫗</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 主网格：周长、面积与立体体积 | 时间与角 -->
+    <div class="main-grid">
+
+      <!-- 左列：周长与平面图形面积 -->
+      <div class="col-left">
+
+        <!-- 周长公式 -->
+        <section class="card" style="border-color:#3b82f6;">
+          <div class="card-title" style="background:#1d4ed8;">
+            <span>③ 常用平面图形周长公式大全</span>
+            <span class="tag" style="background:#dbeafe; color:#1e40af;">一周的长度</span>
+          </div>
+          <div class="card-body">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:7.2pt;">
+              <div class="formula-row">
+                <span class="formula-badge" style="background:#1d4ed8;">长方形</span>
+                <div>
+                  <strong>$C = (长 + 宽) 	imes 2$</strong><br>
+                  <span style="color:#64748b; font-size:6.8pt;">半周长 = 长 + 宽</span>
+                </div>
+              </div>
+              <div class="formula-row">
+                <span class="formula-badge" style="background:#1d4ed8;">正方形</span>
+                <div>
+                  <strong>$C = 边长 	imes 4$</strong><br>
+                  <span style="color:#64748b; font-size:6.8pt;">边长 = $C \div 4$</span>
+                </div>
+              </div>
+              <div class="formula-row">
+                <span class="formula-badge" style="background:#1d4ed8;">圆周长</span>
+                <div>
+                  <strong>$C = \pi d = 2\pi r$</strong><br>
+                  <span style="color:#64748b; font-size:6.8pt;">$\pi pprox 3.14$</span>
+                </div>
+              </div>
+              <div class="formula-row">
+                <span class="formula-badge" style="background:#1d4ed8;">三角形</span>
+                <div>
+                  <strong>$C = a + b + c$</strong><br>
+                  <span style="color:#64748b; font-size:6.8pt;">三条边长度之和</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 面积公式大全 -->
+        <section class="card" style="border-color:#059669; flex:1;">
+          <div class="card-title" style="background:#047857;">
+            <span>④ 平面图形面积与立体图形体积公式</span>
+            <span class="tag" style="background:#a7f3d0; color:#064e3b;">必背公式</span>
+          </div>
+          <div class="card-body">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:7.2pt;">
+
+              <!-- 长方形与正方形 -->
+              <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:4px; padding:3px 5px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:#047857;">长方形面积</strong>
+                  <span style="font-family:var(--font-mono); font-weight:900;">S = a × b</span>
+                </div>
+                <div style="color:#64748b; font-size:6.8pt; margin-top:1px;">面积 = 长 × 宽</div>
+              </div>
+
+              <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:4px; padding:3px 5px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:#047857;">正方形面积</strong>
+                  <span style="font-family:var(--font-mono); font-weight:900;">S = a × a = a²</span>
+                </div>
+                <div style="color:#64748b; font-size:6.8pt; margin-top:1px;">面积 = 边长 × 边长</div>
+              </div>
+
+              <!-- 平行四边形与三角形 -->
+              <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:4px; padding:3px 5px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:#047857;">平行四边形</strong>
+                  <span style="font-family:var(--font-mono); font-weight:900;">S = a × h</span>
+                </div>
+                <div style="color:#64748b; font-size:6.8pt; margin-top:1px;">底 × 高（割补法转化为长方形）</div>
+              </div>
+
+              <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:4px; padding:3px 5px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:#dc2626;">三角形面积</strong>
+                  <span style="font-family:var(--font-mono); font-weight:900; color:#dc2626;">S = a × h ÷ 2</span>
+                </div>
+                <div style="color:#64748b; font-size:6.8pt; margin-top:1px;">⚠️ 必须除以 2（拼成平行四边形）</div>
+              </div>
+
+              <!-- 梯形与圆 -->
+              <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:4px; padding:3px 5px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:#dc2626;">梯形面积</strong>
+                  <span style="font-family:var(--font-mono); font-weight:900; color:#dc2626;">S = (a+b)×h ÷ 2</span>
+                </div>
+                <div style="color:#64748b; font-size:6.8pt; margin-top:1px;">(上底 + 下底) × 高 ÷ 2</div>
+              </div>
+
+              <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:4px; padding:3px 5px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <strong style="color:#047857;">圆面积</strong>
+                  <span style="font-family:var(--font-mono); font-weight:900;">S = π × r²</span>
+                </div>
+                <div style="color:#64748b; font-size:6.8pt; margin-top:1px;">$\pi 	imes 半径^2$</div>
+              </div>
+
+            </div>
+
+            <!-- 立体图形体积与表面积 -->
+            <div style="background:#ecfdf5; border:1.2px solid #a7f3d0; border-radius:4px; padding:3px 6px; font-size:7.1pt; margin-top:1px;">
+              <strong style="color:#065f46;">★ 立体图形体积与表面积核心公式：</strong><br>
+              • <strong>长方体表面积：</strong>$S = (ab + ah + bh) 	imes 2$ &nbsp;|&nbsp; <strong>体积：</strong>$V = a 	imes b 	imes h = S_{底} 	imes h$<br>
+              • <strong>正方体表面积：</strong>$S = 6a^2$ &nbsp;|&nbsp; <strong>体积：</strong>$V = a^3 = S_{底} 	imes h$
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- 右列：时间与角 -->
+      <div class="col-right">
+
+        <!-- 时间模块 -->
+        <section class="card" style="border-color:#d97706;">
+          <div class="card-title" style="background:#b45309;">
+            <span>⑤ 时间单位换算与 24 小时计时法</span>
+            <span class="tag" style="background:#fef3c7; color:#92400e;">时分秒进率 60</span>
+          </div>
+          <div class="card-body">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:4px; font-size:7.1pt;">
+              <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:4px; padding:3px 5px;">
+                <strong>常用时间进率：</strong><br>
+                • 1 年 = 12 个月<br>
+                • 平年 = 365 天 (2月28天)<br>
+                • 闰年 = 366 天 (2月29天)<br>
+                • <strong>1 日 = 24 小时</strong>
+              </div>
+              <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:4px; padding:3px 5px;">
+                <strong>时分秒进率 60：</strong><br>
+                • <strong>1 时 = 60 分</strong><br>
+                • <strong>1 分 = 60 秒</strong><br>
+                • 1 时 = 3600 秒<br>
+                • 半小时 = 30 分
+              </div>
+            </div>
+
+            <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:4px; padding:3px 6px; font-size:7.2pt; color:#78350f;">
+              <strong>★ 经过时间核心公式：</strong><br>
+              <strong>经过时间 = 结束时间 - 开始时间</strong><br>
+              <span style="font-size:6.9pt;">例如：8:20 出发，9:05 到达 $	o$ 经过 45 分钟（借 1 小时化为 60 分）。</span>
+            </div>
+
+            <!-- SVG 钟表 -->
+            <div style="display:flex; align-items:center; justify-content:space-around; background:#f8fafc; border:1px solid #e2e8f0; border-radius:4px; padding:3px;">
+              <svg width="46" height="46" viewBox="0 0 50 50">
+                <circle cx="25" cy="25" r="23" fill="#ffffff" stroke="#b45309" stroke-width="1.8"/>
+                <circle cx="25" cy="25" r="2" fill="#b45309"/>
+                <line x1="25" y1="25" x2="25" y2="12" stroke="#b45309" stroke-width="2" stroke-linecap="round"/>
+                <line x1="25" y1="25" x2="35" y2="25" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round"/>
+                <text x="25" y="9" font-size="5" font-weight="bold" fill="#78350f" text-anchor="middle">12</text>
+                <text x="43" y="27" font-size="5" font-weight="bold" fill="#78350f" text-anchor="middle">3</text>
+                <text x="25" y="45" font-size="5" font-weight="bold" fill="#78350f" text-anchor="middle">6</text>
+                <text x="7" y="27" font-size="5" font-weight="bold" fill="#78350f" text-anchor="middle">9</text>
+              </svg>
+              <div style="font-size:7pt; line-height:1.3;">
+                <strong>24 小时计时法转换：</strong><br>
+                • 下午 3:00 $	o$ <strong>15:00</strong> (+12)<br>
+                • 晚上 8:30 $	o$ <strong>20:30</strong> (+12)<br>
+                • 23:00 $	o$ 晚上 11:00 (-12)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 角的分类与测量 -->
+        <section class="card" style="border-color:#6366f1; flex:1;">
+          <div class="card-title" style="background:#4f46e5;">
+            <span>⑥ 角的分类、度量与量角器使用</span>
+            <span class="tag" style="background:#e0e7ff; color:#3730a3;">几何测量</span>
+          </div>
+          <div class="card-body">
+            <!-- 5种角 -->
+            <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:2px; text-align:center; font-size:6.9pt;">
+              <div style="background:#f5f3ff; border:1px solid #ddd6fe; border-radius:3px; padding:2px;">
+                <strong style="color:#4f46e5;">锐角</strong><br>
+                &lt; 90°
+              </div>
+              <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:3px; padding:2px;">
+                <strong style="color:#1d4ed8;">直角</strong><br>
+                = 90°
+              </div>
+              <div style="background:#fef3c7; border:1px solid #fde68a; border-radius:3px; padding:2px;">
+                <strong style="color:#b45309;">钝角</strong><br>
+                90°~180°
+              </div>
+              <div style="background:#ecfdf5; border:1px solid #a7f3d0; border-radius:3px; padding:2px;">
+                <strong style="color:#047857;">平角</strong><br>
+                = 180°
+              </div>
+              <div style="background:#fdf2f8; border:1px solid #fbcfe8; border-radius:3px; padding:2px;">
+                <strong style="color:#be185d;">周角</strong><br>
+                = 360°
+              </div>
+            </div>
+
+            <!-- SVG 角度对比图 -->
+            <div style="display:flex; justify-content:space-around; align-items:center; background:#ffffff; border:1px solid #cbd5e1; border-radius:4px; padding:2px;">
+              <svg width="60" height="28" viewBox="0 0 60 28">
+                <!-- 锐角 -->
+                <line x1="10" y1="24" x2="45" y2="24" stroke="#4f46e5" stroke-width="1.5"/>
+                <line x1="10" y1="24" x2="35" y2="6" stroke="#4f46e5" stroke-width="1.5"/>
+                <path d="M 22 24 A 12 12 0 0 0 19 17" fill="none" stroke="#dc2626" stroke-width="1"/>
+                <text x="24" y="19" font-size="5" fill="#dc2626">45°</text>
+              </svg>
+              <svg width="45" height="28" viewBox="0 0 45 28">
+                <!-- 直角 -->
+                <line x1="10" y1="24" x2="40" y2="24" stroke="#1d4ed8" stroke-width="1.5"/>
+                <line x1="10" y1="24" x2="10" y2="4" stroke="#1d4ed8" stroke-width="1.5"/>
+                <rect x="10" y="16" width="8" height="8" fill="none" stroke="#dc2626" stroke-width="1"/>
+                <text x="20" y="14" font-size="5" fill="#dc2626">90°</text>
+              </svg>
+              <svg width="60" height="28" viewBox="0 0 60 28">
+                <!-- 平角与周角 -->
+                <line x1="5" y1="22" x2="55" y2="22" stroke="#047857" stroke-width="1.5"/>
+                <circle cx="30" cy="22" r="2" fill="#047857"/>
+                <path d="M 40 22 A 10 10 0 0 0 20 22" fill="none" stroke="#dc2626" stroke-width="1"/>
+                <text x="30" y="14" font-size="5" fill="#dc2626" text-anchor="middle">180°</text>
+              </svg>
+            </div>
+
+            <!-- 量角器使用技巧 -->
+            <div style="background:#eef2ff; border:1px solid #c7d2fe; border-radius:3px; padding:2.5px 5px; font-size:7pt; color:#312e81;">
+              <strong>★ 量角器使用三步口诀：</strong><br>
+              ① <strong>中心对顶点：</strong>量角器中心点与角的顶点重合。<br>
+              ② <strong>零线对一边：</strong>0°刻度线与角的一条边完全重合。<br>
+              ③ <strong>另一边看刻度：</strong>看角的另一边所对刻度（区分内外圈0°）。
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-bar">
+      <span>依据国家《义务教育数学课程标准》· 小学中高年级（4~5年级）量与计量核心知识归纳</span>
+      <span>A4 单页标准版 · 建议彩色打印张贴或装入活页夹</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
