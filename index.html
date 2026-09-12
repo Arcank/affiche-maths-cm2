@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mémos Mathématiques CM1 - CM2 (Cycle 3)</title>
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 14px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+      background: white;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-block;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+    p.lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 16px;
+    }
+    .print-tip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+    .card-banner {
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.2rem;
+    }
+    .banner-theme-1 { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+    .banner-theme-2 { background: linear-gradient(135deg, #065f46, #10b981); }
+    .banner-theme-3 { background: linear-gradient(135deg, #5b21b6, #8b5cf6); }
+    .banner-theme-4 { background: linear-gradient(135deg, #9a3412, #f97316); }
+
+    .card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .key-points {
+      list-style: none;
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 18px;
+    }
+    .key-points li {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .key-points li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #0f172a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #1e293b;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #3b82f6;
+      border: 1.5px solid #bfdbfe;
+      margin-top: 8px;
+    }
+    .btn-outline:hover {
+      background: #eff6ff;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Cycle 3 • CM1 / CM2</span>
+      <h1>Portail des Mémos de Mathématiques A4</h1>
+      <p class="lead">
+        4 affiches synthétiques conçues au format A4 portrait, ultra-visuelles, riches en schémas et formules complètes, prêtes à être imprimées ou consultées sur écran.
+      </p>
+      <div class="print-tip">
+        🖨️ <strong>Astuce d'impression :</strong> Ouvrez une fiche, faites <kbd>Ctrl+P</kbd> ou <kbd>Cmd+P</kbd>, choisissez <em>Format A4</em> et veillez à cocher <em>"Graphiques d'arrière-plan"</em>.
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Thème 1 -->
+      <div class="card">
+        <div class="card-banner banner-theme-1">🔢</div>
+        <div class="card-body">
+          <div class="card-tag">Fiche 1</div>
+          <h2 class="card-title">Nombres & Calculs</h2>
+          <p class="card-desc">Tableau de numération jusqu'au milliard, fractions illustrées, décimaux, 4 opérations posées et calcul mental.</p>
+          <ul class="key-points">
+            <li>Numération & Décompositions</li>
+            <li>Fractions en barres et disques SVG</li>
+            <li>Partie entière / décimale & Piège $3,40 > 3,25$</li>
+            <li>Formule : Dividende = (Diviseur × Quotient) + Reste</li>
+          </ul>
+          <a href="memo_1_nombres_calculs.html" class="btn" target="_blank">Ouvrir le Mémo A4 ➔</a>
+        </div>
+      </div>
+
+      <!-- Thème 2 -->
+      <div class="card">
+        <div class="card-boundary banner-theme-2 card-banner">📏</div>
+        <div class="card-body">
+          <div class="card-tag">Fiche 2</div>
+          <h2 class="card-title">Grandeurs & Mesures</h2>
+          <p class="card-desc">Tableaux de conversion (longueurs, masses, contenances), formules de périmètres, aires, volumes, durées et angles.</p>
+          <ul class="key-points">
+            <li>Tableaux de conversion complets</li>
+            <li>Périmètre = 4 × Côté, 2 × (L + l)</li>
+            <li>Aire = Côté × Côté, L × l (unités à 2 colonnes)</li>
+            <li>Angles aigu, droit, obtus, plat en SVG</li>
+          </ul>
+          <a href="memo_2_grandeurs_mesures.html" class="btn" target="_blank">Ouvrir le Mémo A4 ➔</a>
+        </div>
+      </div>
+
+      <!-- Thème 3 -->
+      <div class="card">
+        <div class="card-banner banner-theme-3">📐</div>
+        <div class="card-body">
+          <div class="card-tag">Fiche 3</div>
+          <h2 class="card-title">Espace & Géométrie</h2>
+          <p class="card-desc">Vocabulaire complet, droites perpendiculaires et parallèles, triangles codés, quadrilatères, cercle, solides et symétrie.</p>
+          <ul class="key-points">
+            <li>Notations : [AB], (d), ⊥, // avec codage</li>
+            <li>5 types de triangles avec angles et égalités</li>
+            <li>Carré, rectangle, losange, parallélogramme</li>
+            <li>Cercle (Diamètre = 2 × Rayon) et solides 3D</li>
+          </ul>
+          <a href="memo_3_espace_geometrie.html" class="btn" target="_blank">Ouvrir le Mémo A4 ➔</a>
+        </div>
+      </div>
+
+      <!-- Thème 4 -->
+      <div class="card">
+        <div class="card-banner banner-theme-4">📊</div>
+        <div class="card-body">
+          <div class="card-tag">Fiche 4</div>
+          <h2 class="card-title">Données & Proportionnalité</h2>
+          <p class="card-desc">Tableaux à double entrée, bâtons, courbes, camemberts, coefficients, règle de trois et pourcentages repères.</p>
+          <ul class="key-points">
+            <li>4 types de graphiques en inline SVG</li>
+            <li>Coefficient de proportionnalité & Linéarité</li>
+            <li>Passage à l'unité (règle de trois) en 2 étapes</li>
+            <li>50% (÷2), 25% (÷4), 75% (×3÷4), 10% (÷10)</li>
+          </ul>
+          <a href="memo_4_organisation_proportionnalite.html" class="btn" target="_blank">Ouvrir le Mémo A4 ➔</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Document conforme aux programmes officiels de mathématiques du Cycle 3 (CM1 - CM2). Conçu pour l'affichage mural et le classeur de référence.
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mémo Maths CM1 / CM2 : Nombres et Calculs</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap');
+
+    /* ==========================================================================
+       VARIABLES DE DESIGN & COULEURS ÉDUCATIVES CYCLE 3
+       ========================================================================== */
+    :root {
+      --font-main: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "SF Mono", "Segoe UI Mono", "Courier New", Courier, monospace;
+
+      --c-navy: #0f172a;
+      --c-slate: #1e293b;
+      --c-muted: #334155;
+      --c-light-bg: #f8fafc;
+      --c-border: #cbd5e1;
+
+      /* Classes de numération */
+      --c-milliards: #6b21a8;
+      --c-milliards-bg: #f3e8ff;
+      --c-millions: #1d4ed8;
+      --c-millions-bg: #dbeafe;
+      --c-mille: #0f766e;
+      --c-mille-bg: #ccfbf1;
+      --c-unites: #15803d;
+      --c-unites-bg: #dcfce7;
+    }
+
+    /* ==========================================================================
+       CONFIGURATION D'IMPRESSION A4 PORTRAIT STRICT (1 PAGE)
+       ========================================================================== */
+    @page {
+      size: A4 portrait;
+      margin: 6mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    html, body {
+      font-family: var(--font-main);
+      color: var(--c-navy);
+      background-color: #cbd5e1;
+      font-size: 8.2pt;
+      line-height: 1.25;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Actions écran */
+    .screen-actions {
+      display: flex;
+      justify-content: center;
+      padding: 8px 0 4px 0;
+    }
+    .btn-print {
+      background: #1e40af;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      font-size: 9.5pt;
+      font-weight: 800;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(30,64,175,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-main);
+      transition: background 0.15s;
+    }
+    .btn-print:hover {
+      background: #1d4ed8;
+    }
+
+    /* Feuille A4 */
+    .page-container {
+      width: 198mm;
+      height: 285mm;
+      max-height: 285mm;
+      margin: 0 auto 15px auto;
+      padding: 0;
+      background: #ffffff;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 2.8mm;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    @media print {
+      .screen-actions {
+        display: none !important;
+      }
+      html, body {
+        background: transparent;
+        margin: 0;
+        padding: 0;
+      }
+      .page-container {
+        width: 198mm;
+        height: 285mm;
+        max-height: 285mm;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+    }
+
+    /* ==========================================================================
+       CARTES ET STRUCTURE
+       ========================================================================== */
+    .card {
+      border: 1.2px solid var(--c-border);
+      border-radius: 6px;
+      background: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 8.8pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      padding: 3.5px 9px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+    }
+
+    .card-body {
+      padding: 5px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .tag {
+      font-size: 7.2pt;
+      font-weight: 800;
+      padding: 1.5px 5px;
+      border-radius: 4px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       1. EN-TÊTE
+       ========================================================================== */
+    .header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+      color: white;
+      border-radius: 6px;
+      padding: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2.5px solid #1d4ed8;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .header-icon {
+      width: 30px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15pt;
+    }
+
+    .header-titles h1 {
+      font-size: 13pt;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .header-titles p {
+      font-size: 7.6pt;
+      opacity: 0.95;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .header-badges {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-cycle {
+      background: #fef08a;
+      color: #854d0e;
+      font-size: 7.6pt;
+      font-weight: 900;
+      padding: 2.5px 7px;
+      border-radius: 12px;
+      text-transform: uppercase;
+    }
+
+    .badge-memo {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+      font-size: 7.2pt;
+      font-weight: 800;
+      padding: 2.5px 7px;
+      border-radius: 12px;
+    }
+
+    /* ==========================================================================
+       2. TABLEAU DE NUMÉRATION
+       ========================================================================== */
+    .numeration-section {
+      border-color: #3b82f6;
+    }
+    .numeration-section .card-title {
+      background: #1e40af;
+    }
+
+    .num-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 8pt;
+    }
+
+    .num-table th, .num-table td {
+      border: 1px solid #cbd5e1;
+      padding: 2.5px 2px;
+    }
+
+    .th-classe {
+      font-size: 7.6pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .bg-milliards { background: var(--c-milliards-bg); color: var(--c-milliards); border-bottom: 2px solid var(--c-milliards); }
+    .bg-millions { background: var(--c-millions-bg); color: var(--c-millions); border-bottom: 2px solid var(--c-millions); }
+    .bg-mille { background: var(--c-mille-bg); color: var(--c-mille); border-bottom: 2px solid var(--c-mille); }
+    .bg-unites { background: var(--c-unites-bg); color: var(--c-unites); border-bottom: 2px solid var(--c-unites); }
+
+    .th-cdu th {
+      background: #f1f5f9;
+      font-weight: 900;
+      font-size: 7.6pt;
+      color: #1e293b;
+      padding: 1.5px 0;
+    }
+
+    .num-val {
+      font-family: var(--font-mono);
+      font-weight: 900;
+      font-size: 9pt;
+      background: #ffffff;
+    }
+
+    .num-empty {
+      color: #cbd5e1;
+      font-size: 8pt;
+      background: #fafafa;
+    }
+
+    .decompo-row {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 7px;
+      font-size: 7.6pt;
+      line-height: 1.35;
+      background: #f8fafc;
+      padding: 3.5px 7px;
+      border-radius: 4px;
+      border: 1px solid #e2e8f0;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       3. GRILLE CENTRALE (FRACTIONS & DÉCIMAUX | OPÉRATIONS)
+       ========================================================================== */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 3mm;
+      flex: 1;
+    }
+
+    .col-left, .col-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2.8mm;
+    }
+
+    /* --- FRACTIONS --- */
+    .card-fractions {
+      border-color: #10b981;
+      flex: 1.1;
+    }
+    .card-fractions .card-title {
+      background: #059669;
+    }
+
+    .frac-intro-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: center;
+      background: #ecfdf5;
+      padding: 4px 7px;
+      border-radius: 4px;
+      border: 1px solid #a7f3d0;
+    }
+
+    .big-fraction {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 900;
+      font-size: 11pt;
+      line-height: 1;
+      background: #ffffff;
+      padding: 2.5px 6px;
+      border-radius: 4px;
+      border: 1px solid #6ee7b7;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .frac-num { color: #047857; }
+    .frac-den { color: #0f766e; }
+    .frac-bar {
+      width: 100%;
+      height: 2.2px;
+      background: #047857;
+      margin: 2px 0;
+    }
+
+    .frac-visuals {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .frac-vis-item {
+      background: #f8fafc;
+      border: 1.2px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 3px 5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .comp-one-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      text-align: center;
+    }
+
+    .comp-pill {
+      background: #ffffff;
+      border: 1.2px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 3px 2px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      font-size: 7.2pt;
+    }
+
+    .repere-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      text-align: center;
+      background: #f0fdf4;
+      border: 1.2px solid #bbf7d0;
+      padding: 3px 4px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 700;
+    }
+
+    /* --- DÉCIMAUX --- */
+    .card-decimaux {
+      border-color: #f59e0b;
+      flex: 1;
+    }
+    .card-decimaux .card-title {
+      background: #d97706;
+    }
+
+    .dec-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 7.6pt;
+    }
+    .dec-table th, .dec-table td {
+      border: 1px solid #cbd5e1;
+      padding: 2.2px 2px;
+    }
+    .th-pe { background: #fef3c7; color: #92400e; font-weight: 900; }
+    .th-virg { background: #fee2e2; color: #b91c1c; font-weight: 900; font-size: 9.5pt; width: 15px; }
+    .th-pd { background: #ffedd5; color: #9a3412; font-weight: 900; }
+
+    .sub-head th {
+      font-size: 7.2pt;
+      font-weight: 800;
+      background: #f8fafc;
+      color: #334155;
+    }
+
+    .dec-val {
+      font-family: var(--font-mono);
+      font-weight: 900;
+      font-size: 8.8pt;
+    }
+
+    .piege-box {
+      background: #fffbeb;
+      border: 1.2px solid #fde68a;
+      border-left: 3.5px solid #d97706;
+      border-radius: 4px;
+      padding: 3.5px 6px;
+      font-size: 7.5pt;
+      line-height: 1.35;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      color: #1e293b;
+    }
+
+    /* --- LES 4 OPÉRATIONS POSÉES --- */
+    .card-operations {
+      border-color: #3b82f6;
+      flex: 1;
+    }
+    .card-operations .card-title {
+      background: #2563eb;
+    }
+
+    .op-block {
+      background: #f8fafc;
+      border: 1.2px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 3.5px 7px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .op-block-title {
+      font-size: 7.8pt;
+      font-weight: 900;
+      color: #1e3a8a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+    }
+
+    .posed-container {
+      display: grid;
+      grid-template-columns: 1.2fr auto;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .posed-math {
+      font-family: var(--font-mono);
+      font-size: 8pt;
+      line-height: 1.2;
+      background: #ffffff;
+      padding: 3px 6px;
+      border-radius: 4px;
+      border: 1.2px solid #cbd5e1;
+      white-space: pre;
+      font-weight: 800;
+    }
+
+    .comma-guide {
+      color: #dc2626;
+      font-weight: 900;
+    }
+
+    .retenue-badge {
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      line-height: 13px;
+      text-align: center;
+      background: #fecaca;
+      color: #dc2626;
+      border-radius: 50%;
+      font-size: 6.5pt;
+      font-weight: 900;
+      border: 1px solid #dc2626;
+      vertical-align: middle;
+    }
+
+    /* Division potence */
+    .potence-card {
+      background: #eef2ff;
+      border: 1.2px solid #c7d2fe;
+      border-radius: 5px;
+      padding: 3.5px 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+    }
+
+    .division-formula-banner {
+      background: #ffffff;
+      border: 1.5px solid #4f46e5;
+      color: #312e81;
+      font-weight: 900;
+      font-size: 8.2pt;
+      text-align: center;
+      padding: 2.5px 6px;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(79,70,229,0.12);
+    }
+
+    .potence-layout {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .potence-table {
+      border-collapse: collapse;
+      font-family: var(--font-mono);
+      font-size: 8.2pt;
+      font-weight: 800;
+      background: #ffffff;
+      padding: 3px;
+      border-radius: 4px;
+    }
+    .potence-table td {
+      padding: 0.5px 4px;
+      text-align: right;
+    }
+    .pot-left {
+      border-right: 2px solid #1e293b;
+    }
+    .pot-bar-bottom {
+      border-bottom: 2px solid #1e293b;
+    }
+    .color-dividende { color: #1d4ed8; }
+    .color-diviseur { color: #b45309; }
+    .color-quotient { color: #15803d; }
+    .color-reste { color: #b91c1c; }
+
+    /* ==========================================================================
+       4. CALCUL MENTAL & AUTOMATISMES (Thématisé en couleurs)
+       ========================================================================== */
+    .card-mental {
+      border-color: #6366f1;
+    }
+    .card-mental .card-title {
+      background: #4f46e5;
+      padding: 3px 8px;
+    }
+
+    .mental-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4.5px;
+    }
+
+    .mental-item {
+      background: #ffffff;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1.2px solid #cbd5e1;
+    }
+
+    .mental-header {
+      padding: 2px 6px;
+      font-size: 7.6pt;
+      font-weight: 900;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .m-blue .mental-header { background: #dbeafe; color: #1e40af; }
+    .m-blue { border-color: #bfdbfe; }
+
+    .m-indigo .mental-header { background: #e0e7ff; color: #3730a3; }
+    .m-indigo { border-color: #c7d2fe; }
+
+    .m-green .mental-header { background: #dcfce7; color: #166534; }
+    .m-green { border-color: #bbf7d0; }
+
+    .m-amber .mental-header { background: #fef3c7; color: #92400e; }
+    .m-amber { border-color: #fde68a; }
+
+    .m-orange .mental-header { background: #ffedd5; color: #9a3412; }
+    .m-orange { border-color: #fed7aa; }
+
+    .m-purple .mental-header { background: #f3e8ff; color: #6b21a8; }
+    .m-purple { border-color: #e9d5ff; }
+
+    .mental-body {
+      padding: 3px 6px;
+      font-size: 7.5pt;
+      line-height: 1.25;
+      color: #1e293b;
+    }
+
+    .mental-calc {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 1.5px 8px 0 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7pt;
+      color: #334155;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+<div class="screen-actions">
+  <button class="btn-print" onclick="window.print()">
+    🖨️ Imprimer la Fiche Mémo Nombres &amp; Calculs (Format A4)
+  </button>
+</div>
+
+<div class="page-container">
+
+  <!-- 1. EN-TÊTE DU MÉMO -->
+  <header class="header">
+    <div class="header-left">
+      <div class="header-icon">🔢</div>
+      <div class="header-titles">
+        <h1>Mémo Maths CM1 / CM2 : Nombres et Calculs</h1>
+        <p>Affiche Référence Cycle 3 • Numération, Fractions, Décimaux, 4 Opérations &amp; Calcul Mental</p>
+      </div>
+    </div>
+    <div class="header-badges">
+      <span class="badge-cycle">Cycle 3 • CM1 / CM2</span>
+      <span class="badge-memo">Fiche N° 1 : Référence</span>
+    </div>
+  </header>
+
+  <!-- 2. TABLEAU DE NUMÉRATION DES ENTIERS -->
+  <section class="card numeration-section">
+    <div class="card-title">
+      <span>🏛️ 1. Le Tableau de Numération des Nombres Entiers (jusqu'au milliard)</span>
+      <span class="tag" style="background:#dbeafe; color:#1e40af;">Base décimale</span>
+    </div>
+    <div class="card-body">
+      <table class="num-table">
+        <thead>
+          <tr>
+            <th colspan="3" class="th-classe bg-milliards">Classe des Milliards</th>
+            <th colspan="3" class="th-classe bg-millions">Classe des Millions</th>
+            <th colspan="3" class="th-classe bg-mille">Classe des Milliers</th>
+            <th colspan="3" class="th-classe bg-unites">Classe des Unités simples</th>
+          </tr>
+          <tr class="th-cdu">
+            <th>C</th><th>D</th><th>U</th>
+            <th>C</th><th>D</th><th>U</th>
+            <th>C</th><th>D</th><th>U</th>
+            <th>C</th><th>D</th><th>U</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num-empty">·</td><td class="num-empty">·</td><td class="num-empty">·</td>
+            <td class="num-empty">·</td><td class="num-empty">·</td><td class="num-empty">·</td>
+            <td class="num-empty">·</td><td class="num-val" style="color:var(--c-mille)">4</td><td class="num-val" style="color:var(--c-mille)">5</td>
+            <td class="num-val" style="color:var(--c-unites)">2</td><td class="num-val" style="color:var(--c-unites)">3</td><td class="num-val" style="color:var(--c-unites)">0</td>
+          </tr>
+          <tr>
+            <td class="num-empty">·</td><td class="num-empty">·</td><td class="num-val" style="color:var(--c-milliards)">1</td>
+            <td class="num-val" style="color:var(--c-millions)">3</td><td class="num-val" style="color:var(--c-millions)">5</td><td class="num-val" style="color:var(--c-millions)">0</td>
+            <td class="num-val" style="color:var(--c-mille)">4</td><td class="num-val" style="color:var(--c-mille)">2</td><td class="num-val" style="color:var(--c-mille)">0</td>
+            <td class="num-val" style="color:var(--c-unites)">8</td><td class="num-val" style="color:var(--c-unites)">9</td><td class="num-val" style="color:var(--c-unites)">0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="decompo-row">
+        <div>
+          <b>Décompositions de 45 230 :</b><br>
+          • <span style="color:#0f766e; font-weight:800;">Additive :</span> 40 000 + 5 000 + 200 + 30<br>
+          • <span style="color:#1d4ed8; font-weight:800;">Multiplicative :</span> (4 × 10 000) + (5 × 1 000) + (2 × 100) + (3 × 10)
+        </div>
+        <div style="background:#fffbeb; border-left:3.5px solid #f59e0b; padding:3px 6px; border-radius:3px; color:#92400e;">
+          <b>💡 Règle d'or de lecture :</b> On regroupe les chiffres par 3 en laissant une <u>espace</u> à partir de la droite : <b>45 230</b> et <b>1 350 420 890</b>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. GRILLE CENTRALE (FRACTIONS & DÉCIMAUX | LES 4 OPÉRATIONS) -->
+  <div class="main-grid">
+
+    <!-- COLONNE GAUCHE : FRACTIONS + DÉCIMAUX -->
+    <div class="col-left">
+
+      <!-- SECTION FRACTIONS -->
+      <section class="card card-fractions">
+        <div class="card-title">
+          <span>🍕 2. Les Fractions</span>
+          <span class="tag" style="background:#a7f3d0; color:#065f46;">Partage équitable</span>
+        </div>
+        <div class="card-body">
+          <!-- Vocabulaire -->
+          <div class="frac-intro-grid">
+            <div class="big-fraction">
+              <span class="frac-num">3</span>
+              <span class="frac-bar"></span>
+              <span class="frac-den">4</span>
+            </div>
+            <div style="font-size:7.5pt; line-height:1.25;">
+              <b class="frac-num">Numérateur (en haut) :</b> nombre de parts <u>prises</u> / coloriées.<br>
+              <b style="color:#1e293b;">Barre de fraction :</b> division, partage en parts égales.<br>
+              <b class="frac-den">Dénominateur (en bas) :</b> nombre <u>total</u> de parts dans l'unité.
+            </div>
+          </div>
+
+          <!-- Schémas SVG agrandis et équilibrés -->
+          <div class="frac-visuals">
+            <!-- Barre de chocolat 3/5 -->
+            <div class="frac-vis-item">
+              <svg width="88" height="28" viewBox="0 0 100 28" style="vertical-align:middle; flex-shrink:0;">
+                <rect x="1" y="1" width="98" height="26" rx="3" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+                <rect x="3" y="3" width="18" height="22" rx="2" fill="#78350f" stroke="#b45309" stroke-width="1"/>
+                <rect x="5.5" y="5.5" width="13" height="17" rx="1" fill="#92400e"/>
+                <rect x="22.5" y="3" width="18" height="22" rx="2" fill="#78350f" stroke="#b45309" stroke-width="1"/>
+                <rect x="25" y="5.5" width="13" height="17" rx="1" fill="#92400e"/>
+                <rect x="42" y="3" width="18" height="22" rx="2" fill="#78350f" stroke="#b45309" stroke-width="1"/>
+                <rect x="44.5" y="5.5" width="13" height="17" rx="1" fill="#92400e"/>
+                <rect x="61.5" y="3" width="18" height="22" rx="2" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1"/>
+                <rect x="81" y="3" width="16" height="22" rx="2" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1"/>
+              </svg>
+              <span style="font-size:7.5pt; line-height:1.15;"><b>3/5</b><br><span style="color:#334155; font-size:6.8pt; font-weight:700;">3 parts sur 5</span></span>
+            </div>
+
+            <!-- Disque 3/4 Agrandie pour équilibre visuel -->
+            <div class="frac-vis-item">
+              <svg width="34" height="34" viewBox="0 0 40 40" style="vertical-align:middle; flex-shrink:0;">
+                <path d="M 20,20 L 20,2 A 18,18 0 0,1 38,20 Z" fill="#10b981" stroke="#047857" stroke-width="1.2"/>
+                <path d="M 20,20 L 38,20 A 18,18 0 0,1 20,38 Z" fill="#10b981" stroke="#047857" stroke-width="1.2"/>
+                <path d="M 20,20 L 20,38 A 18,18 0 0,1 2,20 Z" fill="#10b981" stroke="#047857" stroke-width="1.2"/>
+                <path d="M 20,20 L 2,20 A 18,18 0 0,1 20,2 Z" fill="#ecfdf5" stroke="#047857" stroke-width="1" stroke-dasharray="2,2"/>
+                <circle cx="20" cy="20" r="1.8" fill="#047857"/>
+              </svg>
+              <span style="font-size:7.5pt; line-height:1.15;"><b>3/4</b><br><span style="color:#334155; font-size:6.8pt; font-weight:700;">3 quarts</span></span>
+            </div>
+          </div>
+
+          <!-- Comparaison à 1 -->
+          <div class="comp-one-grid">
+            <div class="comp-pill" style="border-color:#86efac;">
+              <b>Numér. &lt; Dénom.</b>
+              <span style="color:#047857; font-weight:900; font-size:7.5pt;">Fraction &lt; 1</span>
+              <span style="color:#334155; font-weight:700;">Ex : 3/4 &lt; 1</span>
+            </div>
+            <div class="comp-pill" style="border-color:#fdba74;">
+              <b>Numér. = Dénom.</b>
+              <span style="color:#c2410c; font-weight:900; font-size:7.5pt;">Fraction = 1</span>
+              <span style="color:#334155; font-weight:700;">Ex : 4/4 = 1</span>
+            </div>
+            <div class="comp-pill" style="border-color:#fca5a5;">
+              <b>Numér. &gt; Dénom.</b>
+              <span style="color:#b91c1c; font-weight:900; font-size:7.5pt;">Fraction &gt; 1</span>
+              <span style="color:#334155; font-weight:700;">Ex : 7/4 = 1 + 3/4</span>
+            </div>
+          </div>
+
+          <!-- Fractions repères -->
+          <div class="repere-grid">
+            <div>1/2 = <b>0,5</b><br><span style="color:#334155; font-size:6.6pt;">(moitié)</span></div>
+            <div>1/4 = <b>0,25</b><br><span style="color:#334155; font-size:6.6pt;">(quart)</span></div>
+            <div>3/4 = <b>0,75</b><br><span style="color:#334155; font-size:6.6pt;">(3 quarts)</span></div>
+            <div>1/10 = <b>0,1</b><br><span style="color:#334155; font-size:6.6pt;">1/100 = 0,01</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION DÉCIMAUX -->
+      <section class="card card-decimaux">
+        <div class="card-title">
+          <span>🔢 3. Les Nombres Décimaux</span>
+          <span class="tag" style="background:#fde68a; color:#92400e;">Partie entière &amp; décimale</span>
+        </div>
+        <div class="card-body">
+          <!-- Structure décimale -->
+          <table class="dec-table">
+            <thead>
+              <tr>
+                <th colspan="2" class="th-pe">Partie entière</th>
+                <th class="th-virg">,</th>
+                <th colspan="3" class="th-pd">Partie décimale</th>
+              </tr>
+              <tr class="sub-head">
+                <th>Dizaines</th><th>Unités</th>
+                <th style="color:#b91c1c; font-size:8.5pt;">,</th>
+                <th>Dixièmes <span style="font-weight:normal;">(1/10)</span></th>
+                <th>Centièmes <span style="font-weight:normal;">(1/100)</span></th>
+                <th>Millièmes <span style="font-weight:normal;">(1/1000)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="dec-val">2</td><td class="dec-val">4</td>
+                <td class="dec-val" style="color:#b91c1c; font-size:10pt;">,</td>
+                <td class="dec-val" style="color:#b45309;">3</td>
+                <td class="dec-val" style="color:#b45309;">5</td>
+                <td class="dec-val" style="color:#b45309;">6</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Décomposition -->
+          <div style="font-size:7.6pt; background:#f8fafc; padding:3px 6px; border-radius:3px; border:1px solid #cbd5e1;">
+            <b>Décomposition de 24,35 :</b><br>
+            <span style="font-variant-numeric: tabular-nums; font-weight:700;">
+              24,35 = <b>24</b> + <b>3/10</b> + <b>5/100</b> = <b>24</b> + <b>0,3</b> + <b>0,05</b> = <b>2 435 / 100</b>
+            </span>
+          </div>
+
+          <!-- Piège visuel comparaison -->
+          <div class="piege-box">
+            <div>
+              <b style="color:#b91c1c;">⚠️ Piège classique de comparaison :</b> Pour comparer <b>3,4</b> et <b>3,25</b>, ne compte pas le nombre de chiffres !
+            </div>
+            <div>
+              1. Compare d'abord les parties entières : <b>3 = 3</b>.<br>
+              2. Compare ensuite les <u>dixièmes</u> : <b>4 &gt; 2</b>, donc <b>3,4 &gt; 3,25</b> !<br>
+              <span style="color:#92400e; font-weight:800;">💡 Astuce magique :</span> Ajoute des zéros utiles : <b>3,40 &gt; 3,25</b> (40 centièmes &gt; 25 centièmes).
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- COLONNE DROITE : LES 4 OPÉRATIONS POSÉES -->
+    <div class="col-right">
+      <section class="card card-operations">
+        <div class="card-title">
+          <span>⚙️ 4. Les 4 Opérations Posées</span>
+          <span class="tag" style="background:#bfdbfe; color:#1e40af;">Méthodes &amp; Posés</span>
+        </div>
+        <div class="card-body" style="gap:4px;">
+
+          <!-- Addition & Soustraction avec retenue visible -->
+          <div class="op-block">
+            <div class="op-block-title">
+              <span>➕ ➖ Addition &amp; Soustraction</span>
+              <span class="tag" style="background:#fee2e2; color:#991b1b;">Aligner les virgules</span>
+            </div>
+            <div class="posed-container">
+              <div style="font-size:7.4pt; line-height:1.25;">
+                • <b>Virgules sous virgules</b> impérativement.<br>
+                • Unités sous unités, dixièmes sous dixièmes.<br>
+                • Noter les <b>retenues</b> <span class="retenue-badge">+1</span> bien visibles !
+              </div>
+              <div class="posed-math">   <span class="retenue-badge">+1</span>
+   1 4<span class="comma-guide">,</span>7 5
++    8<span class="comma-guide">,</span>2 0
+-------
+   2 2<span class="comma-guide">,</span>9 5</div>
+            </div>
+          </div>
+
+          <!-- Multiplication posée avec comptage décimal -->
+          <div class="op-block">
+            <div class="op-block-title">
+              <span>✖️ Multiplication de décimaux</span>
+              <span class="tag" style="background:#f3e8ff; color:#6b21a8;">Compter les décimales</span>
+            </div>
+            <div class="posed-container">
+              <div style="font-size:7.4pt; line-height:1.25;">
+                <b>1.</b> Multiplier <u>sans virgule</u>.<br>
+                <b>2.</b> Compter le total de décimales (1 + 1 = 2).<br>
+                <b>3.</b> Placer la virgule au produit final !
+              </div>
+              <div class="posed-math">    2<span class="comma-guide">,</span>4  <span style="font-size:6.5pt; color:#475569; font-weight:700;">(1 déc.)</span>
+  × 1<span class="comma-guide">,</span>3  <span style="font-size:6.5pt; color:#475569; font-weight:700;">(1 déc.)</span>
+  -----
+    7 2
++ 2 4 0
+-------
+  3<span class="comma-guide">,</span>1 2  <span style="font-size:6.5pt; color:#6b21a8; font-weight:900;">(2 déc. !)</span></div>
+            </div>
+          </div>
+
+          <!-- Division Euclidienne avec formule en toutes lettres -->
+          <div class="potence-card">
+            <div class="op-block-title" style="color:#312e81; border-color:#c7d2fe;">
+              <span>➗ Division Euclidienne (deux entiers)</span>
+              <span class="tag" style="background:#dbeafe; color:#1e40af;">CM1 - CM2</span>
+            </div>
+
+            <div class="division-formula-banner">
+              Dividende = (Diviseur × Quotient) + Reste
+            </div>
+            <div style="text-align:center; font-size:7.4pt; color:#b91c1c; font-weight:900;">
+              Condition obligatoire : Reste &lt; Diviseur
+            </div>
+
+            <!-- Schéma Potence annotée -->
+            <div class="potence-layout">
+              <table class="potence-table">
+                <tr>
+                  <td class="pot-left color-dividende">8 9</td>
+                  <td class="pot-right pot-bar-bottom color-diviseur">4</td>
+                </tr>
+                <tr>
+                  <td class="pot-left" style="color:#64748b;">- 8</td>
+                  <td class="pot-right color-quotient"><b>2 2</b></td>
+                </tr>
+                <tr>
+                  <td class="pot-left">0 9</td>
+                  <td class="pot-right"></td>
+                </tr>
+                <tr>
+                  <td class="pot-left" style="color:#64748b;">- 8</td>
+                  <td class="pot-right"></td>
+                </tr>
+                <tr>
+                  <td class="pot-left pot-bar-bottom" style="height:1px;"></td>
+                  <td class="pot-right"></td>
+                </tr>
+                <tr>
+                  <td class="pot-left color-reste"><b>1</b></td>
+                  <td class="pot-right"></td>
+                </tr>
+              </table>
+
+              <div style="font-size:7.4pt; line-height:1.25;">
+                • <b class="color-dividende">Dividende (89) :</b> quantité à partager.<br>
+                • <b class="color-diviseur">Diviseur (4) :</b> nombre de parts.<br>
+                • <b class="color-quotient">Quotient (22) :</b> part de chacun.<br>
+                • <b class="color-reste">Reste (1) :</b> ce qui reste (&lt; 4).<br>
+                <span style="font-weight:900; color:#1e1b4b; background:#ffffff; padding:1px 6px; border-radius:3px; display:inline-block; margin-top:2px; border:1px solid #c7d2fe;">
+                  89 = (4 × 22) + 1
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Division décimale (CM2) -->
+          <div class="op-block" style="background:#f0fdf4; border-color:#bbf7d0;">
+            <div class="op-block-title" style="color:#166534; border-color:#dcfce7;">
+              <span>🎯 Division décimale (quotient exact ou approché)</span>
+              <span class="tag" style="background:#dcfce7; color:#15803d;">CM2</span>
+            </div>
+            <div style="font-size:7.4pt; line-height:1.25;">
+              <b>Passage de la virgule :</b> dès que l'on abaisse le chiffre des dixièmes, on place <u>immédiatement</u> une <b>virgule au quotient</b>.<br>
+              <b>Continuer le calcul :</b> on ajoute des zéros au dividende pour continuer la division jusqu'à reste = 0 ou précision voulue (ex : 15 ÷ 4 = <b>3,75</b>).
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- 4. PIED DE PAGE : AUTOMATISMES ET CALCUL MENTAL (Thématisé en couleurs) -->
+  <footer class="card card-mental">
+    <div class="card-title">
+      <span>⚡ 5. Automatismes et Astuces de Calcul Mental</span>
+      <span class="tag" style="background:#e0e7ff; color:#3730a3;">Réflexes indispensables</span>
+    </div>
+    <div class="card-body">
+      <div class="mental-grid">
+
+        <!-- Case 1 (Bleu) -->
+        <div class="mental-item m-blue">
+          <div class="mental-header">
+            <span>× 10, 100, 1 000</span>
+          </div>
+          <div class="mental-body">
+            Décale la virgule vers la <b>droite</b>.<br>
+            <span class="mental-calc">2,4 × 10 = <b>24</b></span> &bull; <span class="mental-calc">0,35 × 100 = <b>35</b></span>
+          </div>
+        </div>
+
+        <!-- Case 2 (Indigo) -->
+        <div class="mental-item m-indigo">
+          <div class="mental-header">
+            <span>÷ 10, 100, 1 000</span>
+          </div>
+          <div class="mental-body">
+            Décale la virgule vers la <b>gauche</b>.<br>
+            <span class="mental-calc">48 ÷ 10 = <b>4,8</b></span> &bull; <span class="mental-calc">7 ÷ 100 = <b>0,07</b></span>
+          </div>
+        </div>
+
+        <!-- Case 3 (Vert) -->
+        <div class="mental-item m-green">
+          <div class="mental-header">
+            <span>× 0,5</span>
+            <span class="tag" style="background:#bbf7d0; color:#166534;">÷ 2</span>
+          </div>
+          <div class="mental-body">
+            Prendre la <b>moitié</b> (diviser par 2).<br>
+            <span class="mental-calc">18 × 0,5 = <b>9</b></span> &bull; <span class="mental-calc">46 × 0,5 = <b>23</b></span>
+          </div>
+        </div>
+
+        <!-- Case 4 (Ambre) -->
+        <div class="mental-item m-amber">
+          <div class="mental-header">
+            <span>× 5</span>
+            <span class="tag" style="background:#fef08a; color:#854d0e;">× 10 ÷ 2</span>
+          </div>
+          <div class="mental-body">
+            Multiplier par 10 puis diviser par 2.<br>
+            <span class="mental-calc">24 × 5 = 240 ÷ 2 = <b>120</b></span>
+          </div>
+        </div>
+
+        <!-- Case 5 (Orange) -->
+        <div class="mental-item m-orange">
+          <div class="mental-header">
+            <span>× 50</span>
+            <span class="tag" style="background:#fed7aa; color:#9a3412;">× 100 ÷ 2</span>
+          </div>
+          <div class="mental-body">
+            Multiplier par 100 puis diviser par 2.<br>
+            <span class="mental-calc">16 × 50 = 1 600 ÷ 2 = <b>800</b></span>
+          </div>
+        </div>
+
+        <!-- Case 6 (Violet) -->
+        <div class="mental-item m-purple">
+          <div class="mental-header">
+            <span>× 11 &amp; × 9</span>
+          </div>
+          <div class="mental-body">
+            • <b>× 11 :</b> (× 10) + nombre <span class="mental-calc">15 × 11 = <b>165</b></span><br>
+            • <b>× 9 :</b> (× 10) - nombre <span class="mental-calc">24 × 9 = <b>216</b></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <div class="footer">
+    <span>📚 Programme officiel Cycle 3 (CM1 - CM2) &bull; Mathématiques : Nombres et Calculs</span>
+    <span>Affiche Mémo Référence &bull; Cycle 3 (CM1 - CM2)</span>
+  </div>
+
+</div>
+
+</body>
+</html>
